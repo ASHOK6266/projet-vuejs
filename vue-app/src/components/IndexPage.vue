@@ -1,7 +1,8 @@
 <template>
  <div id="index-page">
 
-   <div class="container">
+   <div class="row">
+     <div class="container">
      <div class="card" style="width: 18rem;" v-for:="product in products">
        <div class="col-md-4 px-0">
          <img class="card-img-top" :src=product.imgUrl alt="Card image cap">
@@ -11,9 +12,10 @@
         <p class="card-text">{{product.price}}</p>
       </div>
     </div>
+    </div>
    </div>
 
-
+   
   </div>
 </template>
 
