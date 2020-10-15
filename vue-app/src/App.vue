@@ -1,15 +1,18 @@
 <template>
+  <caroselComponent />
   <index-page :products="products"/>
 </template>
 
 <script>
 
 import IndexPage from '@/components/IndexPage.vue'
+import caroselComponent from '@/components/CaroselComponent.vue'
 
 export default {
   name: 'App',
   components: {
     IndexPage,
+    caroselComponent,
   },
   data(){
     return{
