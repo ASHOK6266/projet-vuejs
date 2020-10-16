@@ -1,10 +1,12 @@
 <template>
+  <navbarComponent />
   <caroselComponent />
   <index-page :products="products"/>
 </template>
 
 <script>
 
+import NavbarComponent from '@/components/NavbarComponent.vue'
 import IndexPage from '@/components/IndexPage.vue'
 import caroselComponent from '@/components/CaroselComponent.vue'
 
@@ -13,6 +15,7 @@ export default {
   components: {
     IndexPage,
     caroselComponent,
+    NavbarComponent
   },
   data(){
     return{
