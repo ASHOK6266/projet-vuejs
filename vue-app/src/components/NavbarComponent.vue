@@ -9,8 +9,12 @@
                  <form action="" class="form-inline my-2 my-lg-0">
                      <input class="form-control mr-sm-2 w-50" type="search" placeholder="Search products & brands" aria-label="Search">
                      <button class="btn btn-outline btn btn-dark my-2 my-sm-0" type="submit">Search</button>
-                     <button class="btn btn-outline btn btn-dark my-2 my-sm-0 float-right" type="submit">Cart</button>
-                     <button class="btn btn-outline btn btn-dark my-2 my-sm-0 float-right" type="submit">Sign in</button>
+                     <div>
+                       <button class="btn btn-outline btn btn-dark my-2 my-sm-0 float-right" type="submit">Cart</button>
+                     </div>
+                     <div class="">
+                       <p>Sign in <i class="fa fa-user" aria-hidden="true"></i></p>
+                     </div>
                  </form>
              </div>
          </nav>
@@ -24,6 +28,14 @@ export default {
   name: 'navbarComponent',
   props: {
     products: Array,
+  },
+  data: {
+    message : ''
+  },
+  methods:{
+    mouseover: function(){
+      this.message = 'sign in';
+    }
   }
 }
 </script>
@@ -34,7 +46,7 @@ export default {
 background: #e54448;
 }
 .nav-bar-form{
-  margin-top: 0%;
+  margin: 0%;
   width: 100%;
 }
 h1{
