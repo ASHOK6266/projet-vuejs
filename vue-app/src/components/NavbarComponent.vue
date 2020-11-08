@@ -4,7 +4,7 @@
    <div class="bootstrap_navbar">
     <nav class="navbar nav_bar_bg">
     <!-- Navbar content -->
-    <a class="navbar-brand" href="#">Mantradeal</a>
+    <a class="navbar-brand f-color" href="#">Mantradeal</a>
     <div class="bootstrap_form">
       <form action="" class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -15,7 +15,7 @@
       <a class="f-color" href="#">Cart</a>
     </div>
     <div class="sign-in">
-      <a class="f-color" href="">Sign in</a>
+      <a class="f-color" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave">{{messsage}}</a>
     </div>
     </nav>
    </div>
@@ -25,14 +25,21 @@
 </template>
 
 <script>
+
 export default {
   name: 'navbarComponent',
   props: {
     products: Array,
+    data:{
+    message: 'Sign in'
+    }
   },
   methods:{
     mouseover: function(){
-      this.message = 'sign in';
+      this.message = 'hovered';
+    },
+    mouseleave: function(){
+      this.message = 'Sign in'
     }
   }
 }
@@ -64,5 +71,11 @@ a {
 }
 input{
   width: 50%;
+}
+.sign-in a{
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
 }
 </style>
