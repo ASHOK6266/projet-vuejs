@@ -2,6 +2,7 @@
   <navbarComponent />
   <caroselComponent />
   <index-page :products="products"/>
+  <trendingComponent />
 </template>
 
 <script>
@@ -9,13 +10,15 @@
 import NavbarComponent from '@/components/NavbarComponent.vue'
 import IndexPage from '@/components/IndexPage.vue'
 import caroselComponent from '@/components/CaroselComponent.vue'
+import TrendingComponent from '@/components/TrendingComponent.vue'
 
 export default {
   name: 'App',
   components: {
     IndexPage,
     caroselComponent,
-    NavbarComponent
+    NavbarComponent,
+    TrendingComponent
   },
   data(){
     return{
