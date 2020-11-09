@@ -9,7 +9,7 @@
                 <div class="col-md-4 px-0 mx-auto d-block">
                     <img class="card-img-top" :src=prods.image alt="Card image cap">
                 </div>
-                <h6>{{prods.title}}</h6>
+                <h6>{{prods.title}}</h6>  
                 <p>${{prods.price}}</p>
             </div>
            </div>
