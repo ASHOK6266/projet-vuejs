@@ -57,6 +57,7 @@ export default {
 <style>
 /* GLOBAL STYLING */
 #app {
+  background: #202329;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

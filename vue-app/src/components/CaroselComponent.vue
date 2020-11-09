@@ -2,9 +2,7 @@
 
 
  <div id="carosel-component">
-     <div v-on:click="hello()">
-         
-     </div>
+   
  </div>
   
 </template>
