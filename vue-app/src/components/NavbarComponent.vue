@@ -15,7 +15,7 @@
       <a class="f-color" href="#">Cart</a>
     </div>
     <div class="sign-in">
-      <a class="f-color" v-on:mouseover="mouseover" v-on:mouseleave="mouseleave">{{messsage}}</a>
+      <button class="btn btn-dark my-2 my-sm-0">Sign in</button>
     </div>
     </nav>
    </div>
