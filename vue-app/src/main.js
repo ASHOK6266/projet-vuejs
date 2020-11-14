@@ -1,15 +1,6 @@
 import { createApp } from 'vue'
-import VueRouter from 'vue-router'
+//import VueRouter from 'vue-router'
 import App from './App.vue'
+import router from './router'
 
-createApp(App).mount('#app')
-
-export default new VueRouter({
-    routes:[
-        {
-            path: '/routes',
-            name: 'route',
-            component: Routing
-        }
-    ]
-})
+createApp(App).use(router).mount('#app')
