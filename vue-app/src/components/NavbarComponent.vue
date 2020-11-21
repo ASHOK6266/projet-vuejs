@@ -33,7 +33,7 @@
              <div class="form-group">
                <button>submit</button>
              </div>
-              <p>Do not have an account? <a href="">Register</a></p>
+              <p>Do not have an account? <a href="" v-on="register()">Register</a></p>
            </form>
          </div>
        </div>
@@ -62,6 +62,9 @@ export default {
       }else{
         x.style.display = "none";
       }
+    },
+    register(){
+      alert("Register form is clicked");
     }
   }
 }
