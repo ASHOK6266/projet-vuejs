@@ -1,8 +1,7 @@
 <template>
   <div>
-      <ListItem>
-          <h1>Campus Sutra Maroon cotton</h1>
-      </ListItem>
+    <h1>This is from product route</h1>
+      <ListItem></ListItem>
   </div>
 </template>
 

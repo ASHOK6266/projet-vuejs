@@ -4,7 +4,6 @@
   <caroselComponent />
   <index-page :products="products"/>
   <trendingComponent />
-  <router-link to="/product"></router-link>
 </div>
 </template>
 
