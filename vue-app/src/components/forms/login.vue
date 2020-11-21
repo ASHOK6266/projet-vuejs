@@ -1,6 +1,10 @@
 <template>
 <div>
+    <form action="">
 
+        <input type="text">
+        <label for=""></label>
+    </form>
 </div>
 </template>
 
