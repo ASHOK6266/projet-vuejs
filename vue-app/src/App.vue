@@ -1,9 +1,10 @@
 <template>
-<div>
+<div id="app">
   <navbarComponent />
   <caroselComponent />
   <index-page :products="products"/>
   <trendingComponent />
+  <h1>just check the heading render in app page </h1>
 </div>
 </template>
 

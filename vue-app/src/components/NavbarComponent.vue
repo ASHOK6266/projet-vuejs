@@ -31,9 +31,9 @@
                <input type="password" class="form-control" id="inputPassword2" placeholder="password">
              </div>
              <div class="form-group">
-               <button>submit</button>
+               <button class="btn btn-primary">submit</button>
              </div>
-              <p>Do not have an account? <a href="" v-on="register()">Register</a></p>
+              <p>Do not have an account?<router-link to="/register">Register</router-link></p>
            </form>
          </div>
        </div>
@@ -64,7 +64,7 @@ export default {
       }
     },
     register(){
-      alert("Register form is clicked");
+      console.log("Register form is clicked");
     }
   }
 }
