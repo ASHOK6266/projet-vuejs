@@ -2,7 +2,7 @@
 
 <div class="carosel">
     <div id="carosel-component">
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" v-for="img in images" :key="img">
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" v-for="img in images" :key="img.id">
     <div class="carousel-inner">
       <div class="carousel-item">
         <img :src=img.image class="d-block w-100" alt="carousel images">

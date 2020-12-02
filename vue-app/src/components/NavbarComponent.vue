@@ -19,26 +19,7 @@
     </div>
     </nav>
    </div>
-   <div class="modal" id="myModal">
-     <div class="modal-dialog">
-       <div class="modal-content">
-         <div class="modal-body">
-           <form action="" id="" class="form-inline">
-             <div class="form-group mx-sm-3 mb-2">
-               <input type="text" class="form-control" placeholder="email">
-             </div>
-             <div class="form-group mx-sm-3 mb-2">
-               <input type="password" class="form-control" id="inputPassword2" placeholder="password">
-             </div>
-             <div class="form-group">
-               <button class="btn btn-primary">submit</button>
-             </div>
-              <p>Do not have an account?<router-link to="/register">Register</router-link></p>
-           </form>
-         </div>
-       </div>
-     </div>
-   </div>
+
  </div>
 
 </template>
@@ -74,13 +55,13 @@ export default {
 <style scoped>
 .nav_bar_bg
 {
-  background-color: #e54448;
+  background-color:#67d1a4;
 }
 .f-color{
   color: white;
 }
 h3 {
-  margin: 10px 0 0;
+  margin: 0px;
   color: white;
 }
 ul {

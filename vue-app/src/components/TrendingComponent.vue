@@ -1,10 +1,10 @@
 <template>
-
-    <div class="trending-products">
+<div>
+	<div class="trending-products">
         <h2>TRENDING PRODUCTS</h2>
         <div class="container">
             <div class="row">
-                <div class="card" style="width: 17rem;" v-for="prods in products" :key="prods" :click="greet">
+                <div class="card" style="width: 17rem;" v-for="prods in products" :key="prods.id">
                 <div class="card-body">
                 <div class="col-md-4 px-0 mx-auto d-block">
                     <img class="card-img-top" :src=prods.image alt="Card image cap">
@@ -16,6 +16,7 @@
            </div>
         </div>
     </div>
+</div>
     
 </template>
 
@@ -165,9 +166,6 @@ data(){
 	"category": "women clothing",
 	"image": "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg"
 }],
-methods:{
-    greet: () =>{console.log("card clicked")}
-}
 }
 }
 }
