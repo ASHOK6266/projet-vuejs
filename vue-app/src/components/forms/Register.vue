@@ -1,40 +1,55 @@
 <template>
-<div>
-    <form action="">
-        <div class="form-group">
-            <label for="email"> Email address </label>
-            <input type="email" class="form-control" id="email" placeholder="email">
-        </div>
-          
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" placeholder="username">
-        </div>
-
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Password">
-        </div>
-
-        <div class="form-group">
-            <label for="confirm password"> confirm Password</label>
-            <input type="password" class="form-control" id="confirm password" placeholder="confirm Password">
-        </div>
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-        
-    </form>
-</div>
+  <div>
+    <!--
+        <vuemik
+            :validationSchema="validationSchema" 
+        >
+            <Field type="text" name="itemName" />
+            <Field type="">
+        </vuemik>
+        -->
+  </div>
 </template>
 
 <script>
+import * as yup from "yup";
+
+const credentials = {
+  username,
+  email,
+  password,
+  confirmpassword,
+};
 
 export default {
-  name: 'register',
-}
+  name: "register_form",
+  data: () => ({}),
+  methods: {},
+  computed: {
+    ValidationSchema: () => {
+      return yup.object.shape({
+        username: yup
+          .string()
+          .min(2, " username is too short")
+          .max(50, "username is too long")
+          .required("username is required"),
+        email: yup.string.email(" Invalid email").required("email is required"),
+        password: yup
+          .string()
+          .min(6, "Password must be 6 characters")
+          .max(50, "Password is too long")
+          .required("Password is required"),
+        confirmpassword: yup.string.oneof(
+          [yup.ref("password"), null],
+          "password must match"
+        ),
+      });
+    },
+  },
+};
 </script>
 
-<style>
+<style scoped>
 /* GLOBAL STYLING */
 #app {
   background: #202329;
@@ -46,4 +61,3 @@ export default {
   margin-top: 60px;
 }
 </style>
-
