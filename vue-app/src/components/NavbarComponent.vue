@@ -33,7 +33,7 @@
              <div class="form-group">
                <button class="btn btn-primary">submit</button>
              </div>
-              <p>Do not have an account?<router-link to="/register">Register</router-link></p>
+              <p>Do not have an account?></p>
            </form>
          </div>
        </div>

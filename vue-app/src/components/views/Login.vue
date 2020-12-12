@@ -1,7 +1,7 @@
 <template>
 <div>
     <form action="">
-
+      <h1>Login form</h1>
         <input type="text">
         <label for=""></label>
     </form>

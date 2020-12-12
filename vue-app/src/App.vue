@@ -4,7 +4,7 @@
   <caroselComponent />
   <index-page :products="products"/>
   <trendingComponent />
-  <h1>just check the heading render in app page </h1>
+  <router-link to="/login">login</router-link>
 </div>
 </template>
 

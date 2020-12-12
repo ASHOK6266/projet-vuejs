@@ -12,13 +12,13 @@
 </template>
 
 <script>
-import * as yup from "yup";
-
+//import * as yup from "yup";
+/*
 const credentials = {
-  username,
-  email,
-  password,
-  confirmpassword,
+  //username,
+  //email,
+  //password,
+  //confirmpassword,
 };
 
 export default {
@@ -28,6 +28,7 @@ export default {
   computed: {
     ValidationSchema: () => {
       return yup.object.shape({
+        /*
         username: yup
           .string()
           .min(2, " username is too short")
@@ -43,10 +44,12 @@ export default {
           [yup.ref("password"), null],
           "password must match"
         ),
+    
       });
     },
   },
 };
+*/
 </script>
 
 <style scoped>
