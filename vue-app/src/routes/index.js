@@ -5,7 +5,7 @@ import Register from '../components/forms/Register.vue'
 import Login from '../components/views/Login.vue'
 import App from '../App.vue'
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 
 const routes = [
@@ -27,7 +27,10 @@ const routes = [
     }
 ]
 
-export const router = new VueRouter({
+const router = new VueRouter({
     mode:"history",
     routes,
   });
+
+
+export default router;
