@@ -1,7 +1,7 @@
 <template>
 <div>
     <form action="">
-      <h1>Login form</h1>
+      <h1>Register form</h1>
         <input type="text">
         <label for=""></label>
     </form>
@@ -13,7 +13,7 @@
 
 
 export default {
-  name: 'login',
+  name: 'register',
 }
 </script>
 
