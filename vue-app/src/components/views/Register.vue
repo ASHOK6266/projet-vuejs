@@ -1,10 +1,6 @@
 <template>
 <div>
-    <form action="">
-      <h1>Register form</h1>
-        <input type="text">
-        <label for=""></label>
-    </form>
+    Register
 </div>
 </template>
 
@@ -13,11 +9,11 @@
 
 
 export default {
-  name: 'register',
+  name: 'Register',
 }
 </script>
 
-<style>
+<style scoped>
 /* GLOBAL STYLING */
 #app {
   background: #202329;
@@ -25,7 +21,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color:blue;
   margin-top: 60px;
 }
 </style>

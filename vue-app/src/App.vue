@@ -1,7 +1,10 @@
 <template>
 <div id="app">
-  <router-link to="/login">login</router-link><br>
-  <router-link to="/register">Register</router-link>
+  <nav>
+    <router-link to="/login">login</router-link><br>
+    <router-link to="/register">Register</router-link>
+  </nav>
+  <router-view />
   <navbarComponent />
   <caroselComponent />
   <index-page :products="products"/>

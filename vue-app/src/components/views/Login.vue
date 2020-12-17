@@ -2,8 +2,7 @@
 <div>
     <form action="">
       <h1>Login form</h1>
-        <input type="text">
-        <label for=""></label>
+      <input type="text">
     </form>
 </div>
 </template>
@@ -13,11 +12,11 @@
 
 
 export default {
-  name: 'login',
+  name: 'Login',
 }
 </script>
 
-<style>
+<style scoped>
 /* GLOBAL STYLING */
 #app {
   background: #202329;
@@ -25,7 +24,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: blue;
   margin-top: 60px;
 }
 </style>
