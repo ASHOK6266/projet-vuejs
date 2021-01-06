@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router';
 import App from '../App.vue'
 import Login from '../components/views/Login.vue'
+import Apollo from "../components/views/Apollo.vue"
 import Product from '@/components/views/product.vue'
 import Register from '../components/views/Register.vue'
 
@@ -22,6 +23,10 @@ const routes = [
         path: "/login",
         component: Login
     },
+    {
+        path: "/apollo",
+        component: Apollo
+      },
     {
         path: "/register",
         component: Register
