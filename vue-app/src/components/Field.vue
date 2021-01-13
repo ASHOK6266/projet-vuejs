@@ -9,7 +9,7 @@
     <div>
         <div>
             <component v-bind:is="component" v-bind:name="name" v-bind:options="options" v-bind:type="type"  
-            v-for="val in values" :key="val.id" :value="val.value"  v-on:onChange="myFunction()" > {{val}}
+            v-for="val in values" :key="val.id" :value="val.value"  v-on:input="onChange()" > {{val}}
             <!-- <textarea component="textarea" :value="values" @input="$emit('input', $event.target.value)" v-on:change="onChange()" rows="10" cols="50"></textarea>
             <select component="select" :value="values" @input="$emit('input', $event.target.value)" v-on:change="onChange()" />
                 <input v-bind="props" v-bind:name="name" v-bind:options="options" v-bind:type="type" v-bind:component="component" 
