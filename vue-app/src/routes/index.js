@@ -5,6 +5,7 @@ import Login from '../components/views/Login.vue'
 import Apollo from "../components/views/Apollo.vue"
 import Product from '@/components/views/product.vue'
 import Register from '../components/views/Register.vue'
+import AppVuemik from '../components/views/VueMikTest.vue'
 
 
 Vue.use(VueRouter);
@@ -18,6 +19,10 @@ const routes = [
     {
         path: "/product",
         component: Product,
+    },
+    {
+        path: "/vuemik",
+        component: AppVuemik,
     },
     {
         path: "/login",
