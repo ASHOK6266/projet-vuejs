@@ -1,7 +1,7 @@
 <template>
   <Vuemik
     :initialValues="initialValues"
-    :onSubmit="onSubmit"
+    :onSubmit="addItem"
      v-slot:default="{ handleSubmit }" 
   >
 
@@ -9,12 +9,12 @@
       <option value="1">Choice 1</option>
       <option value="2">Choice 2</option>
     </Field>
-    <Field name="textarea" component="textarea" />
-    <Field name="checkbox" component="input" type="checkbox" />
-    <Field name="text" component="input" type="text" />
-    <Field name="number" component="input" type="number" />
-    <Field name="password" component="input" type="password" />
-    <Field name="submit" component="button" type="submit" @click="handleSubmit" ></Field>
+    <Field name="textarea" component="textarea" /> 
+    <Field name="checkbox" component="input" type="checkbox" /> 
+    <Field name="text" component="input" type="text" /> 
+    <Field name="number" component="input" type="number" /> 
+    <Field name="password" component="input" type="password" /> 
+    <Field name="submit" component="input" type="submit" @click="handleSubmit" />
 
   </Vuemik>
 </template>
@@ -36,18 +36,20 @@
           input: 'test',
           checkbox: false,
           number: 12,
-          motdepasse: 'password',
-          textarea: 'salut'
+          text: 'password',
+          textarea1: 'salut',
+          password: 'mojedldl',
         }
     };
     },
     methods: {
-      onSubmit: (e) => {
-        console.log(e);
+      addItem($e) {
+        console.table("salut" + $e);
       },
         handleSubmit(e) {
-         if(this.textarea) return console.log("salut!!!!!");
-         e.preventDefault();
+         /*if(this.textarea) return console.log("salut!!!!!");
+         e.preventDefault();*/
+          console.log("salut" + e);
         },
     },
   };
