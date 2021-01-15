@@ -15,7 +15,8 @@
             v-bind:options="options" 
             v-bind:type="type"
              :value="values[name]" 
-              v-on:input="onChange($event)"  >  
+             v-bind:checked="values[name]"
+              @input="onChange"  >  
               <slot> </slot>
                    
             <!-- <textarea component="textarea" :value="values" @input="$emit('input', $event.target.value)" v-on:change="onChange()" rows="10" cols="50"></textarea>

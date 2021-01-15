@@ -1,7 +1,9 @@
 <template>
     <div >
+        <form>
         <slot :handleSubmit="handleSubmit">
         </slot>
+        </form>
     </div>
 </template>
 
@@ -35,20 +37,23 @@ export default {
                 //this.values = value;
                 var x = value;
             console.table("You selected: " + x)
-            this.values = value
+           return this.values = value
                  //return this.$data.values = event.target.value
        
             
         },
+        
         handleSubmit( ) {
-            this.onSubmit(this.values)
+            console.table(this.values)
+            this.onSubmit(this.values) 
         }
     },
     // pour passer des données à des composants enfants, ici on les expose avec "provide" puis on les récupère avec "inject" depuis l'enfant
     // https://v3.vuejs.org/guide/component-provide-inject.html
     provide() {
     return{        values: this.values,
-        onChange: this.handleChange
+        onChange: this.handleChange,
+        submit: this.onSubmit
     };
     },
 }
