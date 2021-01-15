@@ -9,15 +9,22 @@
     <!--<ul>  <div>
       
            <li v-for="val in values" :key="val.id">
+               <
             -->
+            <div>
             <component    v-bind:is="component" 
-            v-bind:name="name" 
-            v-bind:options="options" 
-            v-bind:type="type"
-             :value="values[name]" 
-             v-bind:checked="values[name]"
-              @input="onChange"  >  
-              <slot> </slot>
+                v-bind="$attrs"
+                v-bind:name="name" 
+                v-bind:options="options" 
+                v-bind:type="type"
+                :value="values[name]" 
+                v-bind:checked="values[name]"
+                @blur="validate(name)"
+                
+                @input="onChange" 
+               
+            >  
+              <slot> {{ component== "textarea" ? values[name]: undefined}}</slot>
                    
             <!-- <textarea component="textarea" :value="values" @input="$emit('input', $event.target.value)" v-on:change="onChange()" rows="10" cols="50"></textarea>
             <select component="select" :value="values" @input="$emit('input', $event.target.value)" v-on:change="onChange()" />
@@ -27,10 +34,17 @@
                 v-for="name in values" :key="name.id"
                   v-on:input="onChange($event)
                   v-on:input="onChange((event) => this.$emit('inputChange', event))"
+    
+      @keypress="validate(values['nom', 'prenom', 'email'])"
+                
                 -->
 
                 
             </component>
+
+                <p >  {{ errors[name]}} </p>
+           
+            </div>
           <!-- </li>
         </ul>
     </div> -->
@@ -45,9 +59,22 @@ export default {
             type: String,
         },
         name: {
+            required: true,
+            type: String,
+        },
+        /*
+        class: {
             required: false,
             type: String,
         },
+        validate: {
+            required: false,
+            type: String,
+        },
+         error: {
+            required: true,
+            type: Object,
+        },*/
         component: {
             required: false,
             type: String,
@@ -57,6 +84,11 @@ export default {
             type: Array,
             default: () => []
         }
+    },
+    data(){
+      return {
+          error:undefined
+      }  
     },
     methods: {
         val(){
@@ -71,6 +103,10 @@ export default {
             },
         
     },
-    inject: ['values', 'onChange'] // on récupère ce qui nous intéresse dans le provide du parent
+    watch: {
+        errors:{deep:true, handler(val){ this.error = val[this.name]}}
+    },
+   
+    inject: ['values', 'onChange', 'validate', 'errors'] // on récupère ce qui nous intéresse dans le provide du parent
 }
 </script>

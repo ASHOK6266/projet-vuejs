@@ -3,15 +3,20 @@
   <nav>
     <router-link to="/login">login</router-link><br>
     <router-link to="/register">Register</router-link> <br>
-      <router-link to="/apollo">Categories avec Apollo</router-link>
+      <router-link to="/apollo">Categories avec Apollo</router-link><br>
+      <router-link to="/vuemik">Vuemik test</router-link>
+      <br>
+      <router-link to="/registration">Vuemik Registration</router-link>
   </nav>
   <transition name="slide" mode="out-in">
   <router-view />
   </transition>
   <navbarComponent />
+
   <caroselComponent />
   <index-page :products="products"/>
   <trendingComponent />
+
 
 </div>
 </template>
@@ -19,17 +24,17 @@
 <script>
 
 import NavbarComponent from '@/components/NavbarComponent.vue'
+
 import IndexPage from '@/components/IndexPage.vue'
 import caroselComponent from '@/components/CaroselComponent.vue'
 import TrendingComponent from '@/components/TrendingComponent.vue'
-
 export default {
   name: 'App',
   components: {
     IndexPage,
     caroselComponent,
     NavbarComponent,  
-    TrendingComponent,
+    TrendingComponent,  
   },
 }
 </script>

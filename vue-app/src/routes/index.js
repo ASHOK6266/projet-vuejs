@@ -6,7 +6,7 @@ import Apollo from "../components/views/Apollo.vue"
 import Product from '@/components/views/product.vue'
 import Register from '../components/views/Register.vue'
 import AppVuemik from '../components/views/VueMikTest.vue'
-
+import Registration from '../components/RegistrationForm.vue'
 
 Vue.use(VueRouter);
 
@@ -32,6 +32,10 @@ const routes = [
         path: "/apollo",
         component: Apollo
       },
+      {
+        path: "/registration",
+        component: Registration
+    },
     {
         path: "/register",
         component: Register

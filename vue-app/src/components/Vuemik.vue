@@ -1,14 +1,20 @@
 <template>
     <div >
-        <form>
-        <slot :handleSubmit="handleSubmit">
+     
+          <slot :handleSubmit="handleSubmit" method="post">
         </slot>
-        </form>
+        
     </div>
 </template>
 
 <script>
-
+/*import { object, string } from "yup";
+const loginFormSchema = object().shape({
+    description: string().min(2, "Too Short!")
+          .max(50, "Too Long!").required(),
+  email: string().required().email(),
+  password: string().min(8, "Trop court au moins 8 caractères !").required(),
+}); */
 export default {
     name: "Vuemik",
     props: {
@@ -20,32 +26,63 @@ export default {
             required: true,
             type : Function,
         },
+       validationSchema: {
+            required: false,
+            type : Object,
+        }, 
     },
+    
     data() {
         return {
             values: this.initialValues,
+            
+            errors: {},
         };
     },
     methods: {
+         validate(field) {
+     this.validationSchema
+        .validateAt(field, this.values)
+        .then(() => {
+          this.errors[field] = "";
+        })
+        .catch(err => {
+          this.errors[field] = err.message;
+        });
+    },
 
         handleChange(event) { // fonction qui est appelée à chaque fois que la valeur d'un champ change
             // va récupérer la valeur du champ par l'intermédiaire du paramètre event et met à jour la valeur dans this.values
-        event.preventDefault();
+       // event.preventDefault();
              /*var currEvent = event.type;
               console.log(currEvent);  var x = ducument.getElementByName("input").value*/
-                const { value } = event.target;
+                const { value , name } = event.target;
                 //this.values = value;
                 var x = value;
             console.table("You selected: " + x)
-           return this.values = value
+           this.values[name] = value
+           this
                  //return this.$data.values = event.target.value
        
             
         },
+  
+       
         
         handleSubmit( ) {
-            console.table(this.values)
-            this.onSubmit(this.values) 
+           this.validationSchema
+        .validate(this.values, { abortEarly: false })
+        .then(() => {
+          this.errors = {};
+             this.onSubmit(this.values) 
+          // login the user
+        })
+        .catch(err => {
+          err.inner.forEach(error => {
+            this.errors[error.path] = error.message;
+          });
+        });
+           
         }
     },
     // pour passer des données à des composants enfants, ici on les expose avec "provide" puis on les récupère avec "inject" depuis l'enfant
@@ -53,7 +90,9 @@ export default {
     provide() {
     return{        values: this.values,
         onChange: this.handleChange,
-        submit: this.onSubmit
+       validate: this.validate,
+       getError: (name)=>this.errors[name], 
+       errors: this.errors,
     };
     },
 }

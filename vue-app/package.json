@@ -32,7 +32,7 @@
     "vue-router": "^2.7.0",
     "vue-template-compiler": "^2.4.2",
     "vuelidate": "^0.7.6",
-    "yup": "^0.32.6"
+    "yup": "^0.32.8"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.9",

@@ -13,7 +13,7 @@
     <Field name="text" component="input" type="text" /> 
     <Field name="number" component="input" type="number" /> 
     <Field name="password" component="input" type="password" /> 
-    <Field name="submit" component="input" type="submit" @click="handleSubmit" />
+    <Field name="submit" component="input" type="submit" @click.prevent="handleSubmit" />
     <!--<button @click="handleSubmit">Envoyer </button>-->
     
    </template>
@@ -52,6 +52,7 @@
          /*if(this.textarea) return console.log("salut!!!!!");
          e.preventDefault();*/
           console.log("salut" + e);
+             alert("moi")
           this.onSubmit()
         },
     },
