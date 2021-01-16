@@ -15,7 +15,7 @@ Vue.use(VueRouter);
 
 const routes = [
     {
-      path: "/index",
+      path: "/",
       component: TemplateIndexPage,
     },
     {
