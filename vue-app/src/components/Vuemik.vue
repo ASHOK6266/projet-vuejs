@@ -1,10 +1,20 @@
 <template>
-    <div >
-     
-          <slot :handleSubmit="handleSubmit" method="post">
-        </slot>
-        
+  <section class="login py-5 border-top-1">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-8 align-item-center">
+          <div class="border border">
+            <h3 class="bg-gray p-4">Register Now</h3>
+            <fieldset class="p-4">
+
+              <slot :handleSubmit="handleSubmit" method="post">
+              </slot>
+            </fieldset>
+          </div>  
+        </div>
+      </div>   
     </div>
+  </section>
 </template>
 
 <script>
@@ -97,3 +107,12 @@ export default {
     },
 }
 </script>
+<style >
+.page-title h3 {
+  color: #fff;
+  font-size: 42px;
+  letter-spacing: 0;
+  line-height: 1;
+  margin-bottom: 0;
+}
+</style>

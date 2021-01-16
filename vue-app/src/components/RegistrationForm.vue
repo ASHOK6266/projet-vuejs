@@ -4,19 +4,19 @@
     :onSubmit="onSubmit"
     :validationSchema="validationSchema"
   >
-   <template v-slot:default="{ handleSubmit }">
-    <Field name="role" component="select">
+   <template v-slot:default="{ handleSubmit }" class="p-4">
+    <Field name="role" component="select" >
       <option value="1">Admin</option>
       <option value="2">Vendeur </option>
       <option value="3">Client </option>
     </Field>
-    <Field name="description" component="textarea" class=""  ></Field> 
-     <Field name="email" component="input" type="email" /> 
+    <Field name="description" component="textarea" class="border p-3 w-100 my-2" ></Field> 
+     <Field name="email" component="input" type="email" class="border p-3 w-100 my-2" /> 
     <Field name="prenom" component="input" type="text" /> 
     <Field name="nom" component="input" type="text" /> 
-    <Field name="password" component="input" type="password" /> 
+    <Field name="password" component="input" type="password" class="border p-3 w-100 my-2" /> 
     <!--  <Field name="submit" component="input" type="submit" @click.prevent="handleSubmit" />-->
-     <button @click="handleSubmit">Envoyer </button>
+     <button @click="handleSubmit" class="d-block py-3 px-4 bg-primary text-white border-0 rounded font-weight-bold">Envoyer </button>
     
    </template>
   </Vuemik>

@@ -11,8 +11,9 @@
            <li v-for="val in values" :key="val.id">
                <
             -->
-            <div>
-                <p >  {{ errors[name]}} </p>
+            <div >
+               <!-- <p >  {{ errors[name]}} </p> -->
+               <p class="border p-3 w-100 my-2" v-if="!!errors[name]">{{ errors[name] }}</p>
             <component    v-bind:is="component" 
                 v-bind="$attrs"
                 v-bind:name="name" 
