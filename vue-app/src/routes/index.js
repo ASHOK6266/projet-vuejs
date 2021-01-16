@@ -7,11 +7,21 @@ import Product from '@/components/views/product.vue'
 import Register from '../components/views/Register.vue'
 import AppVuemik from '../components/views/VueMikTest.vue'
 import Registration from '../components/RegistrationForm.vue'
+import TemplateIndexPage from '../components/template/IndexPage.vue'
+import TemplateCategoriesPage from '../components/template/CategoriesComponent'
 
 Vue.use(VueRouter);
 
 
 const routes = [
+    {
+      path: "/",
+      component: TemplateIndexPage,
+    },
+    {
+        path: "/categories",
+        component: TemplateCategoriesPage,
+    },
     {
         path: "/",
         component: App,

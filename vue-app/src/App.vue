@@ -1,46 +1,50 @@
 <template>
 <div id="app">
-  <nav>
-    <router-link to="/login">login</router-link><br>
-    <router-link to="/register">Register</router-link> <br>
-      <router-link to="/apollo">Categories avec Apollo</router-link><br>
-      <router-link to="/vuemik">Vuemik test</router-link>
-      <br>
-      <router-link to="/registration">Vuemik Registration</router-link>
-  </nav>
+  <Navbar></Navbar>
+
   <transition name="slide" mode="out-in">
   <router-view />
   </transition>
+<<<<<<< HEAD
+=======
+  <Footer></Footer>
+>>>>>>> mehdi
 
 </div>
 </template>
 
 <script>
+<<<<<<< HEAD
 
 
 export default {
   name: 'App',
  
+=======
+import Navbar from "./components/views/Navbar.vue"
+import Footer from "./components/views/Footer.vue"
+export default {
+  name: 'App',
+  components: {
+    Navbar,
+    Footer
+  },
+>>>>>>> mehdi
 }
 </script>
-
 <style>
-/* GLOBAL STYLING */
+@import "assets/css/style.css";
 #app {
-  background: #202329;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
-
 .sli-enter-active,
 .slide-leave-active{
   transition: opacity 1s, transform 1s;
 }
-
 .sli-enter-active,
 .slide-leave-to{
   opacity: 0;
