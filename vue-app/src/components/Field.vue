@@ -12,6 +12,7 @@
                <
             -->
             <div>
+                <p >  {{ errors[name]}} </p>
             <component    v-bind:is="component" 
                 v-bind="$attrs"
                 v-bind:name="name" 
@@ -42,7 +43,7 @@
                 
             </component>
 
-                <p >  {{ errors[name]}} </p>
+                
            
             </div>
           <!-- </li>

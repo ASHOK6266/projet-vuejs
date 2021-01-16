@@ -10,7 +10,7 @@
       <option value="2">Vendeur </option>
       <option value="3">Client </option>
     </Field>
-    <Field name="description" component="textarea"   ></Field> 
+    <Field name="description" component="textarea" class=""  ></Field> 
      <Field name="email" component="input" type="email" /> 
     <Field name="prenom" component="input" type="text" /> 
     <Field name="nom" component="input" type="text" /> 
@@ -46,6 +46,12 @@ import * as Yup from "yup";
     }),
      validationSchema: () => {
       return Yup.object().shape({
+         role: Yup.string()
+          .notRequired("Required"),
+         password: Yup.string()
+          .min(8, "Too Short!")
+          .max(50, "Too Long!")
+          .required("Required"),
         prenom: Yup.string()
           .min(2, "Too Short!")
           .max(50, "Too Long!")
@@ -57,7 +63,7 @@ import * as Yup from "yup";
         email: Yup.string().email("Invalid email").required("Required"),
       });
     },
-    
+
     },
     methods: {
       
