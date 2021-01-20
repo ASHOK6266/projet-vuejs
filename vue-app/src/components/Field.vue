@@ -14,8 +14,10 @@
             <div >
                <!-- <p >  {{ errors[name]}} </p> -->
                <p class="border p-3 w-100 my-2" v-if="!!errors[name]">{{ errors[name] }}</p>
+               <label class="border p-2 w-60 my-1"  htmlFor="name" v-if="!!label">{{  label}}</label>
             <component    v-bind:is="component" 
                 v-bind="$attrs"
+                v-bind:label="label"
                 v-bind:name="name" 
                 v-bind:options="options" 
                 v-bind:type="type"
@@ -26,7 +28,8 @@
                 @input="onChange" 
                
             >  
-              <slot> {{ component== "textarea" ? values[name]: undefined}}</slot>
+            
+              <slot> {{ component== "textarea" ? values[name]: undefined}} </slot>
                    
             <!-- <textarea component="textarea" :value="values" @input="$emit('input', $event.target.value)" v-on:change="onChange()" rows="10" cols="50"></textarea>
             <select component="select" :value="values" @input="$emit('input', $event.target.value)" v-on:change="onChange()" />
@@ -52,6 +55,7 @@
     </div> -->
 </template>
 <script>
+import { string } from 'yup/lib/locale';
 //import Vuemik from './Vuemik.vue'
 export default {
     name: "Field",
@@ -63,6 +67,10 @@ export default {
         name: {
             required: true,
             type: String,
+        },
+        label: {
+            required: false,
+            typr:string,
         },
         /*
         class: {

@@ -6,7 +6,7 @@
           <div class="border border">
             <h3 class="bg-gray p-4">Register Now</h3>
             <fieldset class="p-4">
-
+              
               <slot :handleSubmit="handleSubmit" method="post">
               </slot>
             </fieldset>

@@ -28,8 +28,10 @@ import gql from 'graphql-tag'
     apollo: {
       categories: {
         query: gql`query getCategories{
-            categories{id,
-  name}
+            categories{
+              id,
+              name
+            }
         }`,
         loadingKey: 'loading',
       }

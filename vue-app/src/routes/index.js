@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router';
 import App from '../App.vue'
 import Login from '../components/views/Login.vue'
+import LoginForm from '../components/LoginForm.vue'
 import Apollo from "../components/views/Apollo.vue"
 import Product from '@/components/views/product.vue'
 import Register from '../components/views/Register.vue'
@@ -9,6 +10,7 @@ import AppVuemik from '../components/views/VueMikTest.vue'
 import Registration from '../components/RegistrationForm.vue'
 import TemplateIndexPage from '../components/template/IndexPage.vue'
 import TemplateCategoriesPage from '../components/template/CategoriesComponent'
+import TrendingComponent from '../components/TrendingComponent.vue'
 
 Vue.use(VueRouter);
 
@@ -23,8 +25,12 @@ const routes = [
         component: TemplateCategoriesPage,
     },
     {
-        path: "/",
+        path: "/app",
         component: App,
+    },
+    {
+        path: "/list",
+        component: TrendingComponent,
     },
     {
         path: "/product",
@@ -35,8 +41,12 @@ const routes = [
         component: AppVuemik,
     },
     {
-        path: "/login",
+        path: "/login1",
         component: Login
+    },
+    {
+        path: "/login",
+        component: LoginForm
     },
     {
         path: "/apollo",

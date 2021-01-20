@@ -5,16 +5,16 @@
     :validationSchema="validationSchema"
   >
    <template v-slot:default="{ handleSubmit }" class="p-4">
-    <Field name="role" component="select" >
+    <Field name="role" component="select" class="border p-3 w-100 my-2">
       <option value="1">Admin</option>
       <option value="2">Vendeur </option>
       <option value="3">Client </option>
     </Field>
-    <Field name="description" component="textarea" class="border p-3 w-100 my-2" ></Field> 
-     <Field name="email" component="input" type="email" class="border p-3 w-100 my-2" /> 
-    <Field name="prenom" component="input" type="text" /> 
-    <Field name="nom" component="input" type="text" /> 
-    <Field name="password" component="input" type="password" class="border p-3 w-100 my-2" /> 
+    <!--<Field name="description" component="textarea" class="border p-3 w-100 my-2" ></Field> -->
+     <Field name="email" component="input" label="Mail" type="email" class="border p-3 w-100 my-2" /> 
+    <Field name="firstName" component="input" label="Prénom" type="text" class="border p-3 w-100 my-2" /> 
+    <Field name="lastName" component="input" label="Nom" type="text" class="border p-3 w-100 my-2" /> 
+    <Field name="password" component="input" label="Mot de passe" type="password" class="border p-3 w-100 my-2" /> 
     <!--  <Field name="submit" component="input" type="submit" @click.prevent="handleSubmit" />-->
      <button @click="handleSubmit" class="d-block py-3 px-4 bg-primary text-white border-0 rounded font-weight-bold">Envoyer </button>
     
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import gql from 'graphql-tag'
 import * as Yup from "yup";
   import  Vuemik from './Vuemik.vue';
   import Field from './Field.vue';
@@ -36,12 +37,12 @@ import * as Yup from "yup";
     computed: {
      
         initialValues: ()=>( {
-          role: 1,
-          nom: 'Nom',
-          prenom: 'Prénom',
+          role: '3',
+          lastName: 'Nom',
+          firstName: 'Prénom',
           email: 'email',
-          description: "Descriptonlldl",
-          password: '',
+          //description: "Descriptonlldl",
+          password: 'password',
         
     }),
      validationSchema: () => {
@@ -52,11 +53,11 @@ import * as Yup from "yup";
           .min(8, "Too Short!")
           .max(50, "Too Long!")
           .required("Required"),
-        prenom: Yup.string()
+        firstName: Yup.string()
           .min(2, "Too Short!")
           .max(50, "Too Long!")
           .required("Required"),
-        nom: Yup.string()
+        lastName: Yup.string()
           .min(2, "Too Short!")
           .max(50, "Too Long!")
           .required("Required"),
@@ -66,10 +67,78 @@ import * as Yup from "yup";
 
     },
     methods: {
+      // mutation {signup(name: "moi",  email: "moi@gmail.com", password: "password"){token, user{password}}} 
+      //mutation {signup(firstName, lastName,  email, password){token, user{password}}}
       
-      onSubmit(values) {
+   
+     async onSubmit(values) {
+         // Call to the graphql mutation
+        let mutation;
+        console.log(values)
+
+        if (values.role === "3") {
+          mutation = gql`
+            mutation ($firstName: String!, $lastName: String!, $email: String!, $password: String!) {
+              signup(firstName: $firstName, lastName: $lastName, email: $email, password: $password, role: USER) {
+                token,
+                user {
+                  password
+                }
+              }
+            }
+          `
+        } else if (values.role === "1") {
+          
+          mutation = gql`
+            mutation ($firstName: String!, $lastName: String!, $email: String!, $password: String! ) {
+              signup(firstName: $firstName, lastName: $lastName, email: $email, password: $password, role: ADMIN) {
+                token,
+                user {
+                  password
+                }
+              }
+            }
+          `
+        } else if (values.role === "2") {
+          
+          mutation = gql`
+            mutation ($firstName: String!, $lastName: String!, $email: String!, $password: String!) {
+              signup(firstName: $firstName, lastName: $lastName, email: $email, password: $password, role: SELLER) {
+                token,
+                user {
+                  password
+                }
+              }
+            }
+          `
+        }
+
+        await this.$apollo.mutate({
+          mutation,
+          variables: {
+            firstName: values.firstName,
+            lastName: values.lastName,
+            email: values.email,
+            password: values.password
+          }
+        });
+         
+        
       //  e.preventDefault()
         //this.validationSchema(this.values)
+                /*axios({
+          method: 'post',
+          url: process.env.VUE_APP_API_URL + '/users',
+          data: {
+            [...]
+          )
+        })
+        .then(() => {
+          [...]
+        })
+        .catch((erreur) => {
+          [...]
+        });   */
         console.dir("salut" , values  );
       },
        /* handleSubmit(e) {

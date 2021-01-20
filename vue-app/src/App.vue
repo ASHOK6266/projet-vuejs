@@ -5,22 +5,12 @@
   <transition name="slide" mode="out-in">
   <router-view />
   </transition>
-<<<<<<< HEAD
-=======
   <Footer></Footer>
->>>>>>> mehdi
 
 </div>
 </template>
 
 <script>
-<<<<<<< HEAD
-
-
-export default {
-  name: 'App',
- 
-=======
 import Navbar from "./components/views/Navbar.vue"
 import Footer from "./components/views/Footer.vue"
 export default {
@@ -29,12 +19,12 @@ export default {
     Navbar,
     Footer
   },
->>>>>>> mehdi
 }
 </script>
 <style>
 @import "assets/css/style.css";
 #app {
+  background: #202329;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
