@@ -11,6 +11,9 @@ import Registration from '../components/RegistrationForm.vue'
 import TemplateIndexPage from '../components/template/IndexPage.vue'
 import TemplateCategoriesPage from '../components/template/CategoriesComponent'
 import TrendingComponent from '../components/TrendingComponent.vue'
+import Admin from '../components/Admin.vue';
+import UpdateUser from '../components/UpdateUserForm.vue'
+import CategoryForm from '../components/CategoryForm.vue';
 
 Vue.use(VueRouter);
 
@@ -23,6 +26,10 @@ const routes = [
     {
         path: "/categories",
         component: TemplateCategoriesPage,
+    },
+    {
+        path: "/category",
+        component: CategoryForm,
     },
     {
         path: "/app",
@@ -45,6 +52,10 @@ const routes = [
         component: Login
     },
     {
+        path: "/admin",
+        component: Admin
+    },
+    {
         path: "/login",
         component: LoginForm
     },
@@ -55,6 +66,10 @@ const routes = [
       {
         path: "/registration",
         component: Registration
+    },
+    {
+        path: "/update",
+        component: UpdateUser
     },
     {
         path: "/register",

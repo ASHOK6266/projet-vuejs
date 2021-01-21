@@ -6,9 +6,9 @@
   >
    <template v-slot:default="{ handleSubmit }" class="p-4">
     <Field name="role" component="select" class="border p-3 w-100 my-2">
-      <option value="ROLE_ADMIN">Admin</option>
-      <option value="ROLE_SELLER">Vendeur </option>
-      <option value="ROLE_USER">Client </option>
+      <option value="1">Admin</option>
+      <option value="2">Vendeur </option>
+      <option value="3">Client </option>
     </Field>
     <!--<Field name="description" component="textarea" class="border p-3 w-100 my-2" ></Field> -->
      <Field name="email" component="input" label="Mail" type="email" class="border p-3 w-100 my-2" /> 
@@ -23,9 +23,8 @@
 </template>
 
 <script>
-//import gql from 'graphql-tag'
+import gql from 'graphql-tag'
 import * as Yup from "yup";
-import UsersAPI from "../services/usersAPI";//La 1ère ligne a decommenté pour apiplatform
   import  Vuemik from './Vuemik.vue';
   import Field from './Field.vue';
 
@@ -38,7 +37,7 @@ import UsersAPI from "../services/usersAPI";//La 1ère ligne a decommenté pour 
     computed: {
      
         initialValues: ()=>( {
-          role: 'ROLE_USER',
+          role: '3',
           lastName: 'Nom',
           firstName: 'Prénom',
           email: 'email',
@@ -73,13 +72,11 @@ import UsersAPI from "../services/usersAPI";//La 1ère ligne a decommenté pour 
       
    
      async onSubmit(values) {
-      // La 2è ligne a decommenté pour apiplatform
-       await UsersAPI.register(values);
          // Call to the graphql mutation
-       /* let mutation;
+        let mutation;
         console.log(values)
 
-        if (values.role === "USER") {
+        if (values.role === "3") {
           mutation = gql`
             mutation ($firstName: String!, $lastName: String!, $email: String!, $password: String!) {
               signup(firstName: $firstName, lastName: $lastName, email: $email, password: $password, role: USER) {
@@ -90,7 +87,7 @@ import UsersAPI from "../services/usersAPI";//La 1ère ligne a decommenté pour 
               }
             }
           `
-        } else if (values.role === "ADMIN") {
+        } else if (values.role === "1") {
           
           mutation = gql`
             mutation ($firstName: String!, $lastName: String!, $email: String!, $password: String! ) {
@@ -102,7 +99,7 @@ import UsersAPI from "../services/usersAPI";//La 1ère ligne a decommenté pour 
               }
             }
           `
-        } else if (values.role === "SELLER") {
+        } else if (values.role === "2") {
           
           mutation = gql`
             mutation ($firstName: String!, $lastName: String!, $email: String!, $password: String!) {
@@ -124,7 +121,7 @@ import UsersAPI from "../services/usersAPI";//La 1ère ligne a decommenté pour 
             email: values.email,
             password: values.password
           }
-        });  */
+        });
 
          
         
