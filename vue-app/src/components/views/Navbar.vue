@@ -18,7 +18,7 @@
                 <li class="nav-item active">
                   <a class="nav-link">
                     <router-link to="/" >
-                      Home
+                      Accueil
                     </router-link>
                   </a>
                 </li>
@@ -50,7 +50,7 @@
                 <li class="nav-item active">
                   <a class="nav-link">
                     <router-link to="/registration" >
-                      Vuemik Registration
+                      Créer un compte
                     </router-link>
                   </a>
                 </li>
@@ -70,14 +70,14 @@
                 <li class="nav-item">
                   <a class="nav-link login-button">
                     <router-link to="/login" >
-                      Login
+                      Se connecter
                     </router-link>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link login-button">
                     <router-link to="/register" >
-                      Register
+                      Créer un compte
                     </router-link>
                   </a>
                 </li>

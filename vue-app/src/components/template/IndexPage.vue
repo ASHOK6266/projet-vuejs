@@ -7,12 +7,12 @@
           <div class="col-md-12">
             <!-- Header Contetnt -->
             <div class="content-block">
-              <h1>Buy & Sell Near You </h1>
-              <p>Join the millions who buy and sell from each other <br> everyday in local communities around the world</p>
+              <h1>Acheter et vendre près de chez vous</h1>
+              <p>Rejoignez les millions de personnes qui achètent et vendent <br> chaque jour dans les communautés locales du monde entier</p>
               <div class="short-popular-category-list text-center">
                 <!-- todo: Catégories avec le + d'articles -->
 
-                <h2>Popular Category</h2>
+                <h2>Catégories populaires</h2>
                 <ul class="list-inline">
                   <li class="list-inline-item">
                     <a href="category.html"><i class="fa fa-bed"></i> Hotel</a></li>
@@ -42,7 +42,7 @@
                     <form>
                       <div class="form-row">
                         <div class="form-group col-md-4">
-                          <input type="text" class="form-control my-2 my-lg-1" id="inputtext4" placeholder="What are you looking for">
+                          <input type="text" class="form-control my-2 my-lg-1" id="inputtext4" placeholder="Que recherchez-vous ?">
                         </div>
                         <div class="form-group col-md-3">
                           <select class="w-100 form-control mt-lg-1 mt-md-2">
@@ -54,10 +54,10 @@
                           </select>
                         </div>
                         <div class="form-group col-md-3">
-                          <input type="text" class="form-control my-2 my-lg-1" id="inputLocation4" placeholder="Location">
+                          <input type="text" class="form-control my-2 my-lg-1" id="inputLocation4" placeholder="Lieu">
                         </div>
                         <div class="form-group col-md-2 align-self-center">
-                          <button type="submit" class="btn btn-primary">Search Now</button>
+                          <button type="submit" class="btn btn-primary">Rechercher</button>
                         </div>
                       </div>
                     </form>

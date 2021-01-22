@@ -1,8 +1,10 @@
 /*=== MEDIA QUERY ===*/
 @import url("https://fonts.googleapis.com/css?family=Muli:300,400,600,700,800,900");
+
 body {
   line-height: 1.5;
   font-family: "Muli", sans-serif;
+  font-size: 14px;
 }
 
 p, li, input, select, button {
@@ -665,7 +667,8 @@ ul.pagination .active a {
 }
 
 .login-button {
-  border: 2px solid #dedede;
+  border: none;
+  background-color: white;
   margin-right: 8px;
   padding: 6px 20px !important;
 }

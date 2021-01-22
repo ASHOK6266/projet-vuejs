@@ -21,20 +21,25 @@ export default {
   },
 }
 </script>
+
 <style>
 @import "assets/css/style.css";
 #app {
-  background: #202329;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
 }
+
+a {
+    color: inherit;
+}
+
 .sli-enter-active,
 .slide-leave-active{
   transition: opacity 1s, transform 1s;
 }
+
 .sli-enter-active,
 .slide-leave-to{
   opacity: 0;
