@@ -23,7 +23,7 @@
                     <h4>{{category.name}}</h4>
                   </div>
                   <ul class="category-list" v-for="product in category.products" :key="product.id">
-                    <li v-if="product < 6"><a href="#"> {{product.name}} <span> {{product.price.toLocaleString()}} </span></a></li>
+                    <li ><a href="#"> {{product.name}} <span> {{product.price.toLocaleString()}} </span></a></li> <!--v-if="product.length < 6" -->
                    
                   </ul>
                 </div>
