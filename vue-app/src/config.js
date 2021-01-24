@@ -6,4 +6,4 @@ export const CATEGORIES_API = API_URL + "categories";
 export const PRODUCTS_API = API_URL + "products";
 export const COMMENTS_API = API_URL + "comments";
 export const USERS_API = API_URL + "users";
-export const LOGIN_API = API_URL + "login_check";//authentication_token
+export const LOGIN_API = API_URL + "authentication_token";//

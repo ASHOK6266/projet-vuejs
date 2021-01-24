@@ -17,7 +17,8 @@
                                 <li class="nav-item"><a class="nav-link"><router-link to="/">Accueil</router-link></a></li>
                                 <li class="nav-item"><a class="nav-link"><router-link to="/categories">Categories</router-link></a></li>
                                 <li class="nav-item"><a class="nav-link"><router-link to="/registration">Créer un compte</router-link></a></li>
-                                <li class="nav-item"><a class="nav-link"><router-link to="/login">Se connecter</router-link></a></li>
+                                <li class="nav-item" v-if="!isAuthenticated"><a class="nav-link"><router-link to="/login">Se connecter</router-link></a></li>
+                                <li class="nav-item" v-if="isAuthenticated"><a class="nav-link"><router-link to="/login">Se deconnecter</router-link></a></li>
                                 <li class="nav-item"><a class="nav-link"><router-link to="/admin">Admin</router-link></a></li>
                                 <!-- APIs switch
                                 <li class="nav-item"><a class="nav-link"  href="">Api Platform</a></li>
@@ -33,7 +34,21 @@
     <!-- END HEADER -->
 </template>
 <script>
+//import AuthContext from "../contexts/AuthContext";
+import AuthAPI from "../../services/authAPI";
 export default {
   name: 'Navbar',
+   
+    inject: ['setIsAuthenticated', 'isAuthenticated' ],
+    methods: {
+       handleLogout ()  {
+    AuthAPI.logout();
+    this.setIsAuthenticated(false);
+    console.log("Vous êtes désormais déconnecté 😁");
+   // toast.info("Vous êtes désormais déconnecté 😁");
+    this.$router.push("/login");
+  }
+
+    },
 }
 </script>

@@ -144,6 +144,7 @@ import UsersAPI from "../services/usersAPI";//La 1ère ligne a decommenté pour 
           [...]
         });   */
         console.dir("salut" , values  );
+        this.$router.push("/");
         //location.reload();
       },
        /* handleSubmit(e) {

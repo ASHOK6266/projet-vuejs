@@ -14,7 +14,7 @@
             <div >
                <!-- <p >  {{ errors[name]}} </p> -->
                <p class="border p-3 w-100 my-2" v-if="!!errors[name]">{{ errors[name] }}</p>
-               <label class="border p-2 w-60 my-1"  htmlFor="name" v-if="!!label">{{  label}}</label>
+               <label class="border p-2 w-60 my-1"  htmlFor="name" v-if="!!label">{{  label}}</label> <br>
             <component    v-bind:is="component" 
                 v-bind="$attrs"
                 v-bind:label="label"
@@ -100,19 +100,19 @@ export default {
           error:undefined
       }  
     },
-    methods: {
+   /* methods: {
         val(){
             return console.log(Object.keys(this.values))
             },
          myFunction(event) {
-            /* event.preventDefault();
-            var x = document.getElementsByName("input").value;*/
+           event.preventDefault();
+            var x = document.getElementsByName("input").value;
             var x = event.target.value;
             alert("You selected: " + x)
             
             },
         
-    },
+    },*/
     watch: {
         errors:{deep:true, handler(val){ this.error = val[this.name]}}
     },
