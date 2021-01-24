@@ -1,5 +1,5 @@
 .DS_Store
-node_modules
+/node_modules/
 /dist
 src/components/Input.vue
 src/components/Select.vue
