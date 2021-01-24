@@ -14,6 +14,7 @@ import TrendingComponent from '../components/TrendingComponent.vue'
 import Admin from '../components/Admin.vue';
 import UpdateUser from '../components/UpdateUserForm.vue'
 import CategoryForm from '../components/CategoryForm.vue';
+import CategorieProducts from "@/components/CategorieProducts";
 
 Vue.use(VueRouter);
 
@@ -26,6 +27,10 @@ const routes = [
     {
         path: "/categories",
         component: TemplateCategoriesPage,
+    },
+    {
+        path: "/categorieproducts",
+        component: CategorieProducts
     },
     {
         path: "/category",
