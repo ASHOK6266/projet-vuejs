@@ -30,6 +30,7 @@ const routes = [
         path: "/categories",
         component: CategoriesComponent,
     },
+    {
         path: "/category",
         component: CategoryForm,
     },
