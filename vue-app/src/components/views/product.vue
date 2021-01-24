@@ -1,18 +1,18 @@
 <template>
   <div>
     <h1>This is from product route</h1>
-      <ListItem></ListItem>
+      <ProductsList></ProductsList>
   </div>
 </template>
 
 <script>
 
-import ListItem from '../ListItem.vue';
+import ProductsList from '../template/ProductsList.vue';
 
 export default {
   name: "product",
   components: {
-    ListItem,
+    ProductsList,
   }
 }
 </script>

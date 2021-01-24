@@ -5,7 +5,7 @@
     :validationSchema="validationSchema"
   >
    <template v-slot:default="{ handleSubmit }" class="p-4">
-     <Field name="title" component="input" label="Name" type="email" class="border p-3 w-100 my-2" /> 
+     <Field name="name" component="input" label="Name" type="text" class="border p-3 w-100 my-2" /> 
    
      <button @click="handleSubmit" class="d-block py-3 px-4 bg-primary text-white border-0 rounded font-weight-bold">Envoyer </button>
     
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import gql from 'graphql-tag'
+import CategoriesAPI from '../services/1categoriesAPI'
 import * as Yup from "yup";
   import  Vuemik from './Vuemik.vue';
   import Field from './Field.vue';
@@ -25,22 +25,15 @@ import * as Yup from "yup";
       Vuemik,
       Field,
     },
-     apollo: {
-    me: gql`query {
-      me {
-        id,
-      }
-    }`,
-    },
     computed: {
      
         initialValues: ()=>( {
-        title: "String",
+        name: "String",
         
     }),
      validationSchema: () => {
       return Yup.object().shape({
-        title: Yup.string()
+        name: Yup.string()
           .min(2, "Too Short!")
           .max(50, "Too Long!")
           .required("Required"),
@@ -55,24 +48,8 @@ import * as Yup from "yup";
    
       async onSubmit(values) {
          // Call to the graphql mutation
-         await this.$apollo.mutate({ 
-       
-          // Query
-          mutation: gql`mutation ($title: String!, $author: ID!)
-          {createCategory(data:{title: $title, author:{
-              me:{
-                  id}
-                }	
-            }){id ,title}
-            }`,
-          // Parameters
-          variables: {
-              title: values.title,
-              author: this.$apollo.id,
-            
-          
-          },
-        })
+          await CategoriesAPI.create(values);
+      this.$router.push("/");
 
         console.dir("salut" , values  );
       },

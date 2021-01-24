@@ -9,11 +9,14 @@ import Register from '../components/views/Register.vue'
 import AppVuemik from '../components/views/VueMikTest.vue'
 import Registration from '../components/RegistrationForm.vue'
 import TemplateIndexPage from '../components/template/IndexPage.vue'
-import TemplateCategoriesPage from '../components/template/CategoriesComponent'
+import CategoriesComponent from '../components/views/CategoriesComponent.vue'
 import TrendingComponent from '../components/TrendingComponent.vue'
 import Admin from '../components/Admin.vue';
 import UpdateUser from '../components/UpdateUserForm.vue'
 import CategoryForm from '../components/CategoryForm.vue';
+import notificationCenter from "../lib/NotifCenter";
+import ProductForm from '../components/ProductForm.vue'
+import ProductsList from '../components/template/ProductsList.vue'
 
 Vue.use(VueRouter);
 
@@ -25,7 +28,7 @@ const routes = [
     },
     {
         path: "/categories",
-        component: TemplateCategoriesPage,
+        component: CategoriesComponent,
     },
     {
         path: "/category",
@@ -44,6 +47,14 @@ const routes = [
         component: Product,
     },
     {
+      path: "/productsList",
+      component: ProductsList,
+  },
+    {
+      path: "/productForm",
+      component: ProductForm,
+  },
+    {
         path: "/vuemik",
         component: AppVuemik,
     },
@@ -54,6 +65,9 @@ const routes = [
     {
         path: "/admin",
         component: Admin
+        /*meta: {
+            private: true,
+          },*/
     },
     {
         path: "/login",
@@ -82,5 +96,23 @@ const router = new VueRouter({
     routes,
   });
 
+  router.beforeEach((to, from, next) => {
+    const auth = {
+      isLoggued: false,
+    };
+    if (to.matched.some((route) => route.meta.private) && auth.isLoggued) {
+      next({
+        path: "/",
+        params: {
+          id: "redirect",
+        },
+      });
+      notificationCenter.notify({
+        msg: "Vous devez être loggué",
+        severity: "error",
+      });
+    }
+    next();
+  });
 
 export default router;

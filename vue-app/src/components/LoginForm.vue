@@ -14,7 +14,9 @@
 </template>
 
 <script>
-import gql from 'graphql-tag'
+//import gql from 'graphql-tag' // La 1ère pour graphql
+import AuthAPI from "../services/authAPI.js" // 1ère pour api
+import notificationCenter from "../lib/NotifCenter.js";
 import * as Yup from "yup";
   import  Vuemik from './Vuemik.vue';
   import Field from './Field.vue';
@@ -25,11 +27,19 @@ import * as Yup from "yup";
       Vuemik,
       Field,
     },
+    inject: ['setIsAuthenticated', 'isAuthenticated' ],
+    data() {
+      return { 
+              msg: "Vous êtes désormais connecté !",
+      }
+    },
+
     computed: {
+     
      
         initialValues: ()=>( {
          
-          email: 'email',
+          email: 'ld@gmail.com',
           //description: "Descriptonlldl",
           password: '',
         
@@ -45,9 +55,41 @@ import * as Yup from "yup";
     },
 
     },
+     
     methods: {
-   
-     async onSubmit(values) {
+       async onSubmit(values) {
+         // Call to the graphql mutation
+      
+        console.log(values)
+         event.preventDefault();
+
+    try {
+      await AuthAPI.authenticate(values);
+      this.setIsAuthenticated(true);
+      this.$router.push("/registration");
+    /*    notificationCenter.onMessage((msg) => {
+      this.$data.msg = msg.msg;
+      setTimeout(() => (this.$data.msg = "ça n'a pas marché !!"), 5000);
+    });*/
+ 
+    notificationCenter.notify({
+        msg: "Vous êtes désormais connecté !"
+      });
+    
+    } catch (errors) {
+    /*  notificationCenter.notify({
+        msg: "Aucun compte ne possède cette adresse email ou alors les informations ne correspondent pas !"
+      });*/
+      errors(
+        "Aucun compte ne possède cette adresse email ou alors les informations ne correspondent pas !"
+      );
+    }
+        
+        console.dir("salut" , values  );
+      },
+
+   //Pour 2ème graphql
+    /* async onSubmit(values) {
          // Call to the graphql mutation
       
         console.log(values)
@@ -67,21 +109,9 @@ import * as Yup from "yup";
         
       //  e.preventDefault()
         //this.validationSchema(this.values)
-                /*axios({
-          method: 'post',
-          url: process.env.VUE_APP_API_URL + '/users',
-          data: {
-            [...]
-          )
-        })
-        .then(() => {
-          [...]
-        })
-        .catch((erreur) => {
-          [...]
-        });   */
+            
         console.dir("salut" , values  );
-      },
+      },   */ // La fin pour graphql
        /* handleSubmit(e) {
          if(this.textarea) return console.log("salut!!!!!");
          e.preventDefault();

@@ -4,67 +4,93 @@
     :onSubmit="onSubmit"
     :validationSchema="validationSchema"
   >
-   <template v-slot:default="{ handleSubmit }" class="p-4">
-    <Field name="role" component="select" class="border p-3 w-100 my-2">
-      <option value="1">Admin</option>
-      <option value="2">Vendeur </option>
-      <option value="3">Client </option>
+   <template v-slot:default="{ handleSubmit }" class="p-4" v-if="loaded">
+    
+     <Field name="name" component="input" label="Le nom du produit" type="text" class="border p-3 w-100 my-2" /> 
+    <Field name="price" component="input" label="Le prix" type="number" class="border p-3 w-100 my-2" /> 
+    <Field name="countInStock" component="input" label="la qtte" type="number" class="border p-3 w-100 my-2" /> 
+    <Field name="reference" component="input" label="La reference" type="text" class="border p-3 w-100 my-2" /> 
+     <Field name="image" component="input" label="L'image" type="url" class="border p-3 w-100 my-2" /> 
+    <Field name="description" label="La description du produit" component="textarea" type="textarea" class="border p-3 w-100 my-2"  />
+
+    <Field name="category" label="Les catégories" component="select" class="border p-3 w-100 my-2"> <!-- type="select"  -->
+      <option  v-for="categor in categories" :key="categor.id" :value="categor.id"> <!-- value="" :value="categor.name"-->
+        {{categor.name}}
+
+      </option>
     </Field>
-    <!--<Field name="description" component="textarea" class="border p-3 w-100 my-2" ></Field> -->
-     <Field name="email" component="input" label="Mail" type="email" class="border p-3 w-100 my-2" /> 
-    <Field name="firstName" component="input" label="Prénom" type="text" class="border p-3 w-100 my-2" /> 
-    <Field name="lastName" component="input" label="Nom" type="text" class="border p-3 w-100 my-2" /> 
-    <Field name="password" component="input" label="Mot de passe" type="password" class="border p-3 w-100 my-2" /> 
-    <!--  <Field name="submit" component="input" type="submit" @click.prevent="handleSubmit" />-->
-     <button @click="handleSubmit" class="d-block py-3 px-4 bg-primary text-white border-0 rounded font-weight-bold">Envoyer </button>
+     <button @click="handleSubmit" class="d-block py-3 px-4 bg-primary text-white border-0 rounded font-weight-bold">Créer </button>
     
    </template>
   </Vuemik>
 </template>
 
 <script>
-import gql from 'graphql-tag'
+import CategoriesAPI from '../services/categoriesAPI'
+import ProductsAPI from '../services/productsAPI'
 import * as Yup from "yup";
   import  Vuemik from './Vuemik.vue';
   import Field from './Field.vue';
+ 
 
+// const cat = CategoriesAPI.findAll() ;//Pour recup les catégories
+  
   export default {
-    name: 'Registration',
+    name: 'ProductForm',
     components: {
       Vuemik,
       Field,
     },
-    computed: {
-     
+     data (){
+      return {
+        loaded: false,
+        categories: "",
+      }
+    },
+     computed:{
         initialValues: ()=>( {
-          role: '3',
-          lastName: 'Nom',
-          firstName: 'Prénom',
-          email: 'email',
-          //description: "Descriptonlldl",
-          password: 'password',
+          name: '',
+          price: 0,
+          countInStock:0,
+          image:'',
+          reference: '',
+          category: '',
+          description: "",
         
-    }),
+    }), 
+   /* categories: function() {
+     return   console.log(cat) 
+     //Pour recup les catégories
+      },*/
      validationSchema: () => {
       return Yup.object().shape({
-         role: Yup.string()
+        category: Yup.string()
+          .required("Required"),
+        description: Yup.string()
           .notRequired("Required"),
-         password: Yup.string()
-          .min(8, "Too Short!")
-          .max(50, "Too Long!")
-          .required("Required"),
-        firstName: Yup.string()
+        name: Yup.string()
           .min(2, "Too Short!")
           .max(50, "Too Long!")
           .required("Required"),
-        lastName: Yup.string()
+        reference: Yup.string()
           .min(2, "Too Short!")
           .max(50, "Too Long!")
           .required("Required"),
-        email: Yup.string().email("Invalid email").required("Required"),
-      });
+        price: Yup.number()
+          .required("Required"),
+        countInStock: Yup.number()
+          .required("Required"),
+        image: Yup.string().url("Invalid email").notRequired("Required"),
+      })
     },
 
+    },
+    async created() {
+      const cat = await CategoriesAPI.findAll() ;
+      if (cat){
+        this.categories = cat
+        this.loaded = true;
+      }
     },
     methods: {
       // mutation {signup(name: "moi",  email: "moi@gmail.com", password: "password"){token, user{password}}} 
@@ -72,74 +98,7 @@ import * as Yup from "yup";
       
    
      async onSubmit(values) {
-         // Call to the graphql mutation
-        let mutation;
-        console.log(values)
-
-        if (values.role === "3") {
-          mutation = gql`
-            mutation ($firstName: String!, $lastName: String!, $email: String!, $password: String!) {
-              signup(firstName: $firstName, lastName: $lastName, email: $email, password: $password, role: USER) {
-                token,
-                user {
-                  password
-                }
-              }
-            }
-          `
-        } else if (values.role === "1") {
-          
-          mutation = gql`
-            mutation ($firstName: String!, $lastName: String!, $email: String!, $password: String! ) {
-              signup(firstName: $firstName, lastName: $lastName, email: $email, password: $password, role: ADMIN) {
-                token,
-                user {
-                  password
-                }
-              }
-            }
-          `
-        } else if (values.role === "2") {
-          
-          mutation = gql`
-            mutation ($firstName: String!, $lastName: String!, $email: String!, $password: String!) {
-              signup(firstName: $firstName, lastName: $lastName, email: $email, password: $password, role: SELLER) {
-                token,
-                user {
-                  password
-                }
-              }
-            }
-          `
-        }
-
-        await this.$apollo.mutate({
-          mutation,
-          variables: {
-            firstName: values.firstName,
-            lastName: values.lastName,
-            email: values.email,
-            password: values.password
-          }
-        });
-
-         
-        
-      //  e.preventDefault()
-        //this.validationSchema(this.values)
-                /*axios({
-          method: 'post',
-          url: process.env.VUE_APP_API_URL + '/users',
-          data: {
-            [...]
-          )
-        })
-        .then(() => {
-          [...]
-        })
-        .catch((erreur) => {
-          [...]
-        });   */
+       await ProductsAPI.create(values);
         console.dir("salut" , values  );
         //location.reload();
       },

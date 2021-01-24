@@ -67,12 +67,17 @@
 
               </ul>
               <ul class="navbar-nav ml-auto mt-10">
-                <li class="nav-item">
+                <li class="nav-item" v-if="!isAuthenticated">
                   <a class="nav-link login-button">
-                    <router-link to="/login" >
+                    <router-link to="/login"  className="btn btn-success">
                       Login
                     </router-link>
                   </a>
+                </li>
+                <li class="nav-item" v-if="isAuthenticated">
+                     <button v-on:click="handleLogout" class="btn btn-danger">
+                      Logout
+                     </button>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link login-button">
@@ -99,7 +104,21 @@
   <!-- END HEADER -->
 </template>
 <script>
+//import AuthContext from "../contexts/AuthContext";
+import AuthAPI from "../../services/authAPI";
 export default {
   name: 'Navbar',
+   
+    inject: ['setIsAuthenticated', 'isAuthenticated' ],
+    methods: {
+       handleLogout ()  {
+    AuthAPI.logout();
+    this.setIsAuthenticated(false);
+    console.log("Vous êtes désormais déconnecté 😁");
+   // toast.info("Vous êtes désormais déconnecté 😁");
+    this.$router.push("/login");
+  }
+
+    },
 }
 </script>
