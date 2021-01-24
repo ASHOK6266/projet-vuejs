@@ -14,9 +14,13 @@ import TrendingComponent from '../components/TrendingComponent.vue'
 import Admin from '../components/Admin.vue';
 import UpdateUser from '../components/UpdateUserForm.vue'
 import CategoryForm from '../components/CategoryForm.vue';
+<<<<<<< HEAD
 import notificationCenter from "../lib/NotifCenter";
 import ProductForm from '../components/ProductForm.vue'
 import ProductsList from '../components/template/ProductsList.vue'
+=======
+import CategorieProducts from "@/components/CategorieProducts";
+>>>>>>> 67c26cfca4c78d38b9e637a15841622c6d405654
 
 Vue.use(VueRouter);
 
@@ -29,6 +33,10 @@ const routes = [
     {
         path: "/categories",
         component: CategoriesComponent,
+    },
+    {
+        path: "/categorieproducts",
+        component: CategorieProducts
     },
     {
         path: "/category",
