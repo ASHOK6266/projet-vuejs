@@ -17,6 +17,7 @@ import CategoryForm from '../components/CategoryForm.vue';
 import notificationCenter from "../lib/NotifCenter";
 import ProductForm from '../components/ProductForm.vue'
 import ProductsList from '../components/template/ProductsList.vue'
+import CategorieProducts from "@/components/CategorieProducts";
 
 Vue.use(VueRouter);
 
@@ -25,6 +26,10 @@ const routes = [
     {
       path: "/",
       component: TemplateIndexPage,
+    },
+    {
+        path: "/categorieProducts",
+        component: CategorieProducts
     },
     {
         path: "/categories",
