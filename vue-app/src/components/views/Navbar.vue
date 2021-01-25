@@ -13,7 +13,7 @@
                         </button>
 
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav ml-auto main-nav ">
+                            <ul class="navbar-nav mx-auto main-nav ">
                                 <li class="nav-item"><a class="nav-link"><router-link to="/">Accueil</router-link></a></li>
                                 <li class="nav-item"><a class="nav-link"><router-link to="/categories">Categories</router-link></a></li>
                                 <li class="nav-item"><a class="nav-link"><router-link to="/registration">Créer un compte</router-link></a></li>
