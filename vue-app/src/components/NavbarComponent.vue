@@ -46,7 +46,7 @@
 <script>
 
 export default {
-  name: 'navbarComponent',
+  name: 'NavbarComponent',
   form: true,
   props: {
     products: Array,

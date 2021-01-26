@@ -21,7 +21,7 @@
 
 <script>
 export default {
-    name: 'trendingComponent',
+    name: 'TrendingComponent',
 data(){
     return{
         products: [{

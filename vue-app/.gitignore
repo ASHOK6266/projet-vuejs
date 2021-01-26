@@ -1,7 +1,13 @@
 .DS_Store
-node_modules
+/node_modules/
 /dist
-
+src/components/Input.vue
+src/components/Select.vue
+src/components/Textarea.vue
+src/components/VueMikTest.zip
+src/components/Vuuemik.zip
+src/components/oldField1
+src/components/oldVuemik1
 
 # local env files
 .env.local
