@@ -4,6 +4,7 @@ import App from '../App.vue'
 import LoginForm from '../components/LoginForm.vue'
 import Apollo from "../components/views/Apollo.vue"
 import Product from '@/components/views/product.vue'
+import Products from '@/components/views/Products.vue'
 import AppVuemik from '../components/views/VueMikTest.vue'
 import Registration from '../components/RegistrationForm.vue'
 import TemplateIndexPage from '../components/template/IndexPage.vue'
@@ -41,9 +42,13 @@ const routes = [
         component: TrendingComponent,
     },
     {
-        path: "/product",
+        path: "/products/:id",
         component: Product,
     },
+    {
+      path: "/products",
+      component: Products,
+  },
     {
       path: "/productsList",
       component: ProductsList,
