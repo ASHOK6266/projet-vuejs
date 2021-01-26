@@ -57,7 +57,12 @@
                     <h4 class="card-title"><a href="#">{{product.name}}</a></h4>
                     <ul class="list-inline product-meta">
                       <li class="list-inline-item">
-                        <a href="single.html"><i class="fa fa-folder-open-o"></i>Furnitures</a>
+                       <a class="nav-link">
+                          <router-link to="/products/product.id" >
+                          <i class="fa fa-folder-open-o"></i>
+                            {{product.name}}
+                          </router-link>
+                        </a>
                       </li>
                       <li class="list-inline-item">
                         <a href="#"><i class="fa fa-calendar"></i>26th December</a>
@@ -106,6 +111,7 @@ export default {
       return {
         loaded: false,
         products: "",
+        
       /*  paginated: Pagination.getData(
           this.filteredCustomers,
           this.currentPage,
@@ -133,6 +139,11 @@ export default {
     /*  onPageChanged(page){
         console.log(page)
       }*/
+    },
+    provide() {
+        return {
+           prodId: this.product,
+        };
     },
 
 }
