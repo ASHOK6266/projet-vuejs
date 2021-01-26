@@ -8,8 +8,8 @@
                <!-- <div class="col-md-4 px-0 mx-auto d-block">
                     <img class="card-img-top" :src=category.image alt="Card image cap">
                 </div> -->
-                <h6>{{category.id}}</h6>  
-                <p>{{category.name}}</p>
+                <h6></h6>  
+                <p>{{category.title}}</p>
                 
               
             </div>
@@ -23,14 +23,14 @@ import gql from 'graphql-tag'
  export default {
    name: "categoriesApollo",
    data: () => ({
-      categories: {},
+      
     }),
     apollo: {
       categories: {
         query: gql`query getCategories{
             categories{
               id,
-              name
+              title
             }
         }`,
         loadingKey: 'loading',

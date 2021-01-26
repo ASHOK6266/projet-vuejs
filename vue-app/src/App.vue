@@ -63,7 +63,7 @@ export default {
 <style>
 @import "assets/css/style.css";
 #app {
-  background: #202329;
+  background: #f8f8f8;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

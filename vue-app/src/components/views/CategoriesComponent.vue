@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>This is from product route</h1>
+    <h1>La liste de toute nos catégories !</h1>
       <CategoriesList></CategoriesList>
   </div>
 </template>

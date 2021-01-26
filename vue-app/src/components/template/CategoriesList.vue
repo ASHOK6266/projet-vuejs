@@ -1,5 +1,5 @@
 <template>
-  <div v-if="loaded">
+  <div v-if="loaded" id="cat">
     <!--==========================================
     =            All Category Section            =
     ===========================================-->
@@ -11,19 +11,22 @@
           <div class="col-12">
             <!-- Section title -->
             <div class="section-title">
-              <h2>All Categories</h2>
+              <h2>La liste de toute nos catégories !</h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, provident!</p>
             </div>
-            <div class="row" v-for="category in categories" :key="category.id">
+            <div class="row" >
               <!-- Category list -->
-              <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6">
-                <div class="category-block">
-                  <div class="header">
+              <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6 col-6" v-for="category in categories" :key="category.id">
+                <div class="category-block" >
+                  <div class="header" >
                     <i class="fa fa-laptop icon-bg-1"></i>
                     <h4>{{category.name}}</h4>
                   </div>
                   <ul class="category-list" v-for="product in category.products" :key="product.id">
-                    <li ><a href="#"> {{product.name}} <span> {{product.price.toLocaleString()}} </span></a></li> <!--v-if="product.length < 6" -->
+                    
+                    <li v-if="[product.length > 6 ? product.length = 6: productlength = 6]" >
+                      <a href="#"> {{   product.name }} <span> {{product.price.toLocaleString()}} </span></a>
+                    </li> <!-- {{ product.length > 6 ? product.length - 6:  product.name}} v-if="[product.id.length > 6 ? product.id.length = 6: product.id.length = 6]" -->
                    
                   </ul>
                 </div>
@@ -66,4 +69,5 @@ export default {
 .col-lg-4 {
   float: left;
 }
+
 </style>

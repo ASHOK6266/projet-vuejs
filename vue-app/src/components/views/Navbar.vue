@@ -31,7 +31,30 @@
                   </a>
                 </li>
 
+                 <li class="nav-item active">
+                  <a class="nav-link">
+                    <router-link to="/product" >
+                      Products
+                    </router-link>
+                  </a>
+                </li>
+
                 <li class="nav-item active">
+                  <a class="nav-link">
+                    <router-link to="/productForm" >
+                      Product register
+                    </router-link>
+                  </a>
+                </li>
+                 <li class="nav-item active">
+                  <a class="nav-link">
+                    <router-link to="/category" >
+                      Category register
+                    </router-link>
+                  </a>
+                </li>
+
+                 <!--<li class="nav-item active">
                   <a class="nav-link">
                     <router-link to="/apollo" >
                       Apollo
@@ -56,7 +79,7 @@
                 </li>
 
 
-                <!-- APIs switch
+                APIs switch
                 <li class="nav-item">
                   <a class="nav-link"  href="">Api Platform</a>
                 </li>
@@ -69,7 +92,7 @@
               <ul class="navbar-nav ml-auto mt-10">
                 <li class="nav-item" v-if="!isAuthenticated">
                   <a class="nav-link login-button">
-                    <router-link to="/login"  className="btn btn-success">
+                    <router-link to="/login"  >
                       Login
                     </router-link>
                   </a>
@@ -81,7 +104,7 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link login-button">
-                    <router-link to="/register" >
+                    <router-link to="/registration" >
                       Register
                     </router-link>
                   </a>

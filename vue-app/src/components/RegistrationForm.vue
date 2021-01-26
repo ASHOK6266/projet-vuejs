@@ -6,7 +6,7 @@
   >
    <template v-slot:default="{ handleSubmit }" class="p-4">
     <Field name="role" component="select" class="border p-3 w-100 my-2">
-      <option value="ROLE_ADMIN">Admin</option>
+      <!-- <option value="ROLE_ADMIN">Admin</option> -->
       <option value="ROLE_SELLER">Vendeur </option>
       <option value="ROLE_USER">Client </option>
     </Field>
