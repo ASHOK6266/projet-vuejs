@@ -1,4 +1,4 @@
-<template>
+ <template>
     <div>
       <ul class="pagination pagination-sm">
         <li :class="'page-item' + (currentPage === 1 && 'disabled')">
@@ -45,32 +45,60 @@
 export default {
     name:'Pagination',
     props:{
-        currentPage: '',
-        itemsPerPage: 10,
-        onPageChanged:'',
+        currentPage: {
+            type: String,
+            required: true,
+            default: "1"
+        },
+        itemsPerPage:  {
+            type: String,
+            required: true,
+            default: "10"
+        },
+        //onPageChanged:{},
+        length: {
+            type: String,
+            required: true,
+            default: "1"
+        },
 
 
     },
     data(){
         return{
-            getData:'',
-        }
-    },
-    methods:{
-        Pagination = ({ currentPage, itemsPerPage, length, onPageChanged }) => {
+            pagesCount: Math.ceil(length / this.itemsPerPage),
+            pages:[],
+           /*  Pagination : ({ currentPage, itemsPerPage, length, onPageChanged }) => {
         const pagesCount = Math.ceil(length / itemsPerPage);
         const pages = [];
 
         for (let i = 1; i <= pagesCount; i++) {
             pages.push(i);
         };
+    },*/
+        }
     },
-  /*  Pagination.getData = (items, currentPage, itemsPerPage) => {
-        const start = currentPage * itemsPerPage - itemsPerPage;
-        return items.slice(start, start + itemsPerPage);
-    }; */
+    methods:{
+           
+        onPageChanged(page){
+            this.$emit('onPageChanged', page)
+        },
+   
  
     },
+    computed: {
+     count: function(){
+            return this.pagesCount.forEach(i => {  this.pages.push(i);   })
+             //pagesCount =  Math.ceil(length / itemsPerPage),
 
+              
+            
+        },
+          
+    getData: function( items) {
+        const start = this.currentPage * this.itemsPerPage - this.itemsPerPage;
+        return items.slice(start, start + this.itemsPerPage);
+    },
+    }
 }
-</script>
+</script> 

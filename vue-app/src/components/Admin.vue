@@ -1,6 +1,6 @@
 <template>
-    <div> 
-        <table border='1' width='100%' style='border-collapse: collapse;'>
+  <div id="table1"> 
+    <table  border='1' width='100%' style='border-collapse: color: #f7f8fa; collapse;'>
       <tr>
         <th>First name</th>
         <th>Last Name</th>
@@ -21,39 +21,50 @@
       </tr>
     </table>
     <br>
-    <form >
-         <label>Rôle</label>
-        <select name="role"  v-model="role">
-          <!--  <option v-for="user in users" v-bind:key="user.id" value="user.role">
-                {{user.role}}
-            </option>-->
-            <option value="1">Admin</option>
-            <option value="2">Vendeur </option>
-            <option value="3">Client </option>
-        </select>
-        <br>
-      <label>First Name</label>
-      <input type="text" name="firstName" v-model="firstName">
-      <br>
+    <section class="login py-5 border-top-1">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-5 col-md-8 align-item-center">
+            <div class="border border">
+              <h3 class="bg-gray p-4">Register Now</h3>
+              <fieldset class="p-4">
+                <form >
+                    <label>Rôle</label>
+                    <select name="role"  v-model="role">
+                      <!--  <option v-for="user in users" v-bind:key="user.id" value="user.role">
+                            {{user.role}}
+                        </option>-->
+                        <option value="1">Admin</option>
+                        <option value="2">Vendeur </option>
+                        <option value="3">Client </option>
+                    </select>
+                    <br>
+                  <label>First Name</label>
+                  <input type="text" name="firstName" v-model="firstName" class="border p-3 w-100 my-2">
+                  <br>
 
-      <label>Last Name</label>
-      <input type="text" name="lastName" v-model="lastName">
-      <br>
+                  <label>Last Name</label>
+                  <input type="text" name="lastName" v-model="lastName" class="border p-3 w-100 my-2">
+                  <br>
 
-      <label>Email</label>
-      <input type="email" name="email" v-model="email">
-      <br>
-       <label>Password</label>
-      <input type="password" name="password" v-model="password">
-      <br>
+                  <label>Email</label>
+                  <input type="email" name="email" v-model="email" class="border p-3 w-100 my-2">
+                  <br>
+                  <label>Password</label>
+                  <input type="password" name="password" v-model="password" class="border p-3 w-100 my-2">
+                  <br>
 
-      <input v-if="!id" type="button" @click="signup(firstName, lastName, email, password, role)" value="Add">
-      <input v-if="id" type="button" @click="updateUser(id, firstName, lastName, email, role, password)" value="Update">
-      <input type="button" @click="clearForm()" value="Clear">
-    </form>
-
-    
-    </div>
+                  <input v-if="!id" type="button" @click="signup(firstName, lastName, email, password, role)" value="Add">
+                  <input v-if="id" type="button" @click="updateUser(id, firstName, lastName, email, role, password)" value="Update">
+                  <input type="button" @click="clearForm()" value="Clear">
+                </form>
+              </fieldset>
+            </div>  
+          </div>
+        </div>   
+      </div>
+    </section> 
+  </div>
     
 </template>
 
@@ -254,3 +265,5 @@ import gql from 'graphql-tag'
     
   };
 </script>
+
+

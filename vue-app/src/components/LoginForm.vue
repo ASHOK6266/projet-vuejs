@@ -66,7 +66,7 @@ import * as Yup from "yup";
     try {
       await AuthAPI.authenticate(values);
       this.setIsAuthenticated(true);
-      this.$router.push("/registration");
+      this.$router.push("/product");
     /*    notificationCenter.onMessage((msg) => {
       this.$data.msg = msg.msg;
       setTimeout(() => (this.$data.msg = "ça n'a pas marché !!"), 5000);

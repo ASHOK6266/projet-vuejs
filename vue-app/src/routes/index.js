@@ -1,11 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router';
 import App from '../App.vue'
-import Login from '../components/views/Login.vue'
 import LoginForm from '../components/LoginForm.vue'
 import Apollo from "../components/views/Apollo.vue"
 import Product from '@/components/views/product.vue'
-import Register from '../components/views/Register.vue'
 import AppVuemik from '../components/views/VueMikTest.vue'
 import Registration from '../components/RegistrationForm.vue'
 import TemplateIndexPage from '../components/template/IndexPage.vue'
@@ -59,10 +57,6 @@ const routes = [
         component: AppVuemik,
     },
     {
-        path: "/login1",
-        component: Login
-    },
-    {
         path: "/admin",
         component: Admin
         /*meta: {
@@ -85,10 +79,6 @@ const routes = [
         path: "/update",
         component: UpdateUser
     },
-    {
-        path: "/register",
-        component: Register
-    }
 ]
 
 const router = new VueRouter({
